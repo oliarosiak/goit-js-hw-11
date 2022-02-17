@@ -10,4 +10,59 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  text-align: center;
+}
+
+.search-form {
+  margin-bottom: 40px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  width: calc((100% - 80px) / 4);
+  margin: 10px;
+  border: 1px solid lightcoral;
+}
+
+img {
+  height: 240px;
+}
+
+div.info {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.info-item {
+  display: block;
+}
+
+.info-item:not(:last-child) {
+  margin-right: 5px;
+}
+
+.load-more {
+  width: 200px;
+  height: 50px;
+  margin-top: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 3px solid green;
+  border-radius: 25px;
+  background-color: yellowgreen;
+  color: darkgreen;
+}
+
+.load-more:disabled {
+  border: 3px solid rgba(47, 177, 47, 0.575);
+  background-color: rgba(195, 241, 103, 0.575);
+  color: rgba(45, 153, 45, 0.575);
 }
