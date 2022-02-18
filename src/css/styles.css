@@ -11,10 +11,42 @@ body {
   color: #212121;
   line-height: 1.5;
   text-align: center;
+
+  background: #eacda3;
+  background: -webkit-linear-gradient(to right, #d6ae7b, #eacda3);
+  background: linear-gradient(to right, #d6ae7b, #eacda3);
 }
 
 .search-form {
   margin-bottom: 40px;
+}
+
+.search-form > input,
+.search-form > button {
+  height: 60px;
+  font-size: 20px;
+  font-weight: 700;
+  border-width: 5px;
+  border-color: green;
+  border-radius: 20px;
+  background-color: rgba(170, 212, 170, 0.87);
+  color: rgb(5, 49, 5);
+}
+
+.search-form > input {
+  margin-right: 15px;
+  outline: none;
+  width: 350px;
+  border-style: double;
+  padding-left: 10px;
+}
+
+.search-form > input::placeholder {
+  color: darkgreen;
+}
+
+.search-form > button {
+  width: 150px;
 }
 
 .gallery {
@@ -28,11 +60,17 @@ body {
   flex-direction: column;
   width: calc((100% - 80px) / 4);
   margin: 10px;
-  border: 1px solid lightcoral;
+  border: 7px double rgb(52, 116, 37);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(170, 212, 170, 0.87);
 }
 
 img {
-  height: 240px;
+  display: block;
+  height: 260px;
+  /* width: auto; */
+  width: 100%;
 }
 
 div.info {
@@ -43,26 +81,26 @@ div.info {
 
 .info-item {
   display: block;
+  font-size: 18px;
 }
 
 .info-item:not(:last-child) {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .load-more {
-  width: 200px;
-  height: 50px;
+  width: 250px;
+  height: 60px;
   margin-top: 25px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
-  border: 3px solid green;
-  border-radius: 25px;
-  background-color: yellowgreen;
-  color: darkgreen;
+  border-width: 5px;
+  border-color: green;
+  border-radius: 20px;
+  background-color: rgba(170, 212, 170, 0.87);
+  color: rgb(5, 49, 5);
 }
 
 .load-more:disabled {
-  border: 3px solid rgba(47, 177, 47, 0.575);
-  background-color: rgba(195, 241, 103, 0.575);
-  color: rgba(45, 153, 45, 0.575);
+  display: none;
 }
