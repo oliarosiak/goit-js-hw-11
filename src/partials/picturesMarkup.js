@@ -1,34 +1,45 @@
+import { refs } from './refs';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
+
 export function picturesMarkup(obj) {
-    const array = obj.hits;
-
-    if (array.length === 0) {
-        Notiflix.Notify.warning('Sorry, there are no images matching your search query. Please try again.');      
-    }
-
-    const cardsLayout = array.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
+    // const array = ;
+    const cardsLayout = obj.hits.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
         return `
-        <div class="photo-card">
-            <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-            <div class="info">
-                <p class="info-item">
-                <b>Likes</b>
-                ${likes}
-                </p>
-                <p class="info-item">
-                <b>Views</b>
-                ${views}
-                </p>
-                <p class="info-item">
-                <b>Comments</b>
-                ${comments}
-                </p>
-                <p class="info-item">
-                <b>Downloads</b>
-                ${downloads}
-                </p>
+        
+             <div class="photo-card">     
+                <a href="${largeImageURL}">           
+                    <img src="${webformatURL}" alt="${tags}" loading="lazy" />  
+                </a>              
+                <div class="info">
+                    <p class="info-item">
+                    <b>Likes</b>
+                    ${likes}
+                    </p>
+                    <p class="info-item">
+                    <b>Views</b>
+                    ${views}
+                    </p>
+                    <p class="info-item">
+                    <b>Comments</b>
+                    ${comments}
+                    </p>
+                    <p class="info-item">
+                    <b>Downloads</b>
+                    ${downloads}
+                    </p>
+                </div>
             </div>
-        </div>`
+        `
     }).join('');
 
-    return cardsLayout;
+    refs.picturesWrapper.insertAdjacentHTML("beforeend", cardsLayout);
+
+    let gallerySlider = new SimpleLightbox('.photo-card a', { captionsData: "alt", captionDelay: 500, }); 
+    gallerySlider.refresh();
+
+   //<a href="${largeImageURL}">
+
+    // return cardsLayout; 
 }
