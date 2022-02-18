@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import { refs } from './partials/refs';
 import { fetchPictures } from './api/fetchPictures';
 import { picturesMarkup } from './partials/picturesMarkup';
+import { smoothFirstScroll, smoothLoadMoreScroll } from './partials/smooth';
 
 refs.loadMoreBtn.disabled = true;
 
@@ -14,7 +15,7 @@ refs.loadMoreBtn.addEventListener('click', onLoadMoreBtn);
 
 function onFormSubmit(event) {
     event.preventDefault();    
-    searchQuery = refs.inputRef.value.trim(); 
+    searchQuery = refs.inputRef.value.trim();     
 
     clearPictureList();
 
@@ -39,9 +40,9 @@ function onFormSubmit(event) {
                     refs.loadMoreBtn.disabled = false;
                 }, 1000);
             }
-
-            picturesMarkup(pictures);
-            
+        
+            picturesMarkup(pictures);  
+            smoothFirstScroll();
         })
         .catch(onError);       
 }
@@ -58,6 +59,7 @@ function onLoadMoreBtn() {
             }
 
             picturesMarkup(pictures);
+            smoothLoadMoreScroll();
         })
         .catch(onError);
 }
