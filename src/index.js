@@ -28,15 +28,20 @@ function onFormSubmit(event) {
             if (pictures.hits.length === 0) {
                 Notiflix.Notify.warning('Sorry, there are no images matching your search query. Please try again.'); 
                 return;
-            } 
-
-            Notiflix.Notify.success(`We found ${pictures.totalHits} pictures`);
+            }
             
-            setTimeout(() => {
-                refs.loadMoreBtn.disabled = false;
-            }, 1000);            
+            Notiflix.Notify.success(`We found ${pictures.totalHits} pictures`);
 
-            picturesMarkup(pictures); 
+            if(pictures.hits.length < 40) {                
+                refs.loadMoreBtn.disabled = true;  
+            } else {       
+                setTimeout(() => {
+                    refs.loadMoreBtn.disabled = false;
+                }, 1000);
+            }
+
+            picturesMarkup(pictures);
+            
         })
         .catch(onError);       
 }
