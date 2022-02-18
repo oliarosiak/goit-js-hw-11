@@ -3,8 +3,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 
-export function picturesMarkup(obj) {
-    // const array = ;
+export function picturesMarkup(obj) {   
     const cardsLayout = obj.hits.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
         return `
         
@@ -38,8 +37,4 @@ export function picturesMarkup(obj) {
 
     let gallerySlider = new SimpleLightbox('.photo-card a', { captionsData: "alt", captionDelay: 500, }); 
     gallerySlider.refresh();
-
-   //<a href="${largeImageURL}">
-
-    // return cardsLayout; 
 }

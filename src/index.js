@@ -12,8 +12,6 @@ let pageNumber = 1;
 refs.formRef.addEventListener('submit', onFormSubmit);
 refs.loadMoreBtn.addEventListener('click', onLoadMoreBtn);
 
-
-
 function onFormSubmit(event) {
     event.preventDefault();    
     searchQuery = refs.inputRef.value.trim(); 
