@@ -68,9 +68,9 @@ body {
 
 img {
   display: block;
-  height: 260px;
-  /* width: auto; */
+  height: 240px;
   width: 100%;
+  object-fit: cover;
 }
 
 div.info {
