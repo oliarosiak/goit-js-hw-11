@@ -50,12 +50,13 @@ function onLoadMoreBtn() {
     pageNumber += 1;
 
     fetchPictures(searchQuery, pageNumber)
-        .then(pictures => {   
-            const pagesLeft = pictures.totalHits / (pageNumber * pictures.hits.length);           
-            if (pagesLeft < 1) {
+        .then(pictures => {         
+            
+            if (pictures.hits.length < 40) {
                 Notiflix.Notify.failure('We\'re sorry, but you\'ve reached the end of search results.');
                 refs.loadMoreBtn.disabled = true;
             }
+
             picturesMarkup(pictures);
         })
         .catch(onError);
